@@ -24,4 +24,6 @@ python manage.py migrate
 ```
 
 ## 起動方法
+```
 python manage.py runserver
+```
