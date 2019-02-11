@@ -53,3 +53,7 @@ python manage.py migrate
 ```
 python manage.py runserver
 ```
+
+## url
+- トップページ:http://127.0.0.1:8000/top/
+- トーク画面:http://127.0.0.1:8000/talk_page/
