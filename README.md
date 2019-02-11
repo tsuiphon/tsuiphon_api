@@ -55,5 +55,5 @@ python manage.py runserver
 ```
 
 ## url
-- トップページ:http://127.0.0.1:8000/top/
+- トップページ:http://127.0.0.1:8000/
 - トーク画面:http://127.0.0.1:8000/talk_page/
