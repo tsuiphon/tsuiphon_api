@@ -1,4 +1,4 @@
-** セットアップ
+## セットアップ
 ```
 mkdir tsuiphon_project
 cd tsuiphon_project
@@ -23,5 +23,5 @@ cd tsuiphon_api_django
 python manage.py migrate
 ```
 
-** 起動方法
+## 起動方法
 python manage.py runserver
