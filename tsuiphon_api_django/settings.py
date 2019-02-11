@@ -133,4 +133,4 @@ AUTHENTICATION_BACKENDS = [
 ]
 SOCIAL_AUTH_TWITTER_KEY = secret_data['twitter_key']
 SOCIAL_AUTH_TWITTER_SECRET = secret_data['twitter_secret']
-SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/accounts/top/'
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
