@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <!-- レスポンシブデザイン　画面幅自動調整 -->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <!-- include icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- include icons from FontAwesome  -->
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    {% load static %}
+    <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.css' %}"/>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}"/>
+
+    <!-- JS -->
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!-- モーダルの追加 -->
+    <script src='https://code.jquery.com/jquery-2.1.4.js'></script>
+    <script src="{% static 'js/materialize.js' %}"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+
+    <!-- cssのダウンロード先：href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.css -->
+    <!-- jsのダウンロード先：https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.js -->
+    <!-- jsのダウンロード先2: http://code.jquery.com/jquery-2.1.1.min.js -->
+
+  </head>
+  <body class="main-background">
+
+    <div class="tp-container">
+    <!-- ナビゲーションバー -->
+    <nav class="tp-nav-wrapper">
+      <div class="row">
+        <div class="col s12">
+          <div class="row">
+            <a href="#" class="tp-brand-logo col s8 push-s2">ついふぉん</a>
+            <div class="col s2 push-s2 tp-icon-container">
+              <img class="tp-circle tp-nav-icon" src="{% static 'images/twitter_icon.jpg' %}" alt="ツイッターアイコン" title="ツイッターアイコン">
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- メインコンテンツ -->
+    <div class="tp-container">
+      <div class="row">
+        <div class="col s12">
+          <div class="row">
+            <p class="col s12 proposal-box">話題を決めてトークルームを作成しよう</p>
+          </div>
+          <div class="row">
+            <p class="col s12 proposal-exapmle-box">例.水たまりボンド好きな人！</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="input-talk-room-contents-box">
+        <div class="row">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s10 push-s1">
+                <textarea class="materialize-textarea"></textarea>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col s12">
+      <div class="row">
+        <button class="tweet-btn col s6 push-s3">ツイート</button>
+      </div>
+    </div>
+
+    <footer class="tp-page-footer">
+      <div class="tp-footer-rectangle">
+        <div class="col s12">
+          <h5 class="center-align">
+            TsuiPhonデザインについて
+          </h5>
+        </div>
+      </div>
+      </div>
+    </footer>
+    </div>
+  </body>
+</html>

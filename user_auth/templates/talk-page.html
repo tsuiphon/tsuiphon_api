@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <!-- レスポンシブデザイン　画面幅自動調整 -->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <!-- include icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- include icons from FontAwesome  -->
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <!-- CSS -->
+    {% load static %}
+    <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.css' %}"/>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}"/>
+
+    <!-- JS -->
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!-- モーダルの追加 -->
+    <script src='https://code.jquery.com/jquery-2.1.4.js'></script>
+    <script src="{% static 'js/materialize.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+
+    <!-- cssのダウンロード先：href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.css -->
+    <!-- jsのダウンロード先：https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.js -->
+    <!-- jsのダウンロード先2: http://code.jquery.com/jquery-2.1.1.min.js -->
+
+  </head>
+  <body>
+    <div class="tp-container">
+    <!-- ナビゲーションバー -->
+    <nav class="tp-nav-wrapper">
+      <div class="row">
+        <div class="col s12">
+              <a href="#" class="tp-brand-logo col s8 push-s2">ついふぉん</a>
+              <div class="col s2 push-s2 tp-icon-container">
+                  <img class="tp-circle tp-nav-icon" src="{% static 'images/twitter_icon.jpg' %}" alt="ツイッターアイコン" title="ツイッターアイコン">
+              </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- メインコンテンツ -->
+    <div class="tp-container">
+      <div class="row">
+        <div class="col s12">
+            <span class="col s2 push-s10 tp-room-people">3132</span>
+        </div>
+        <div class="col s12 tp-icon-container">
+            <img class="tp-circle tp-main-icon s8 push-s2" src="{% static 'images/twitter_icon.jpg' %}" alt="ツイッターアイコン" title="ツイッターアイコン">
+        </div>
+        <div class="col s12">
+          <span class="tp-talk-person-name col s10 push-s1"><i class="material-icons light-green-color">fiber_manual_record</i>no name</span>
+        </div>
+        <div class="col s12">
+          <span class="tp-talk-person-twitter-id col s10 push-s1">@test_id</span>
+        </div>
+        <div class="col s12">
+          <span class="tp-talk-time col s2 push-s5">03:34</span>
+        </div>
+        <div class="col s4 text-align-center">
+          <a class="push-s1 tp-mute-button btn-floating btn-large waves-effect waves-light accent-4 talk-button-link"><i class="material-icons">mic_off</i></a>
+        </div>
+        <div class="col s4 text-align-center">
+          <!-- モーダルボタンの追加 -->
+          <button data-target="modal-demo" class="push-s3 tp-mute-button btn-floating btn-large waves-effect waves-light red darken-1btn modal-trigger talk-button-link"><i class="material-icons">call_end</i></button>
+        </div>
+        <div class="col s4 text-align-center">
+          <a class="push-s5 tp-mute-button btn-floating btn-large waves-effect waves-light accent-4 talk-button-link"><i class="material-icons">volume_up</i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- モーダルボタンの中身 -->
+    <div id="modal-demo" class="tp-modal">
+      <div class="modal-translucent-rectangle"></div>
+      <div class="modal-content">
+        <div class="modal-content-box">
+          <div class="row">
+            <div class="col s6 text-align-center">
+              <a class="push-s1 btn-floating btn-large waves-effect waves-light red" href="talk-page.html"><i class="material-icons">block</i></a>
+            </div>
+            <div class="col s6 text-align-center">
+              <a class="push-s5 btn-floating btn-large waves-effect waves-light red "><i class="material-icons">add</i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+      </div>
+    </div>
+
+
+    <footer class="tp-page-footer">
+      <div class="tp-footer-rectangle">
+        <div class="col s12">
+          <h5 class="center-align">
+            TsuiPhonデザインについて
+          </h5>
+        </div>
+      </div>
+      </div>
+    </footer>
+    </div>
+  </body>
+</html>

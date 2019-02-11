@@ -1,0 +1,299 @@
+/* ===================================
+header
+====================================== */
+.tp-nav-wrapper {
+  min-height: 60px;
+  padding-top: 0.7rem;
+  height: 60px;
+  line-height: 3rem;
+  background: rgba(248,248,248,0.82);
+  box-shadow: 0 2px 4px -1px rgba(0,0,0,0.50);
+}
+
+.tp-brand-logo {
+  font-family: Helvetica;
+  position: absolute;
+  color: #000000;
+  display: inline-block;
+  font-size: 2rem;
+  padding: 0;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.tp-center {
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+/* ===================================
+body
+====================================== */
+/* フッターを画面下部に固定 */
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+/* ===================================
+container
+====================================== */
+.tp-room-people {
+  font-family: Helvetica;
+  font-size: 18px;
+  color: #909090;
+  text-align: center;
+}
+
+.tp-container {
+  margin: 0 auto;
+  max-width: auto;
+  width: 100%;
+  height: auto;
+}
+.tp-circle {
+  border-radius: 50%;
+  border: 2px solid rgba(120,180,200,0.69);
+  box-shadow: 0 0 13px 0
+  rgba(0,53,255,0.50);
+}
+
+.tp-talk-person-name {
+  font-family: Helvetica;
+  font-size: 2.5rem;
+  color: #000000;
+  text-align: center;
+}
+
+.tp-talk-person-name::before{
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-image: radial-gradient(50% 100%, #00FF36 0%, #63F078 100%);
+}
+
+.tp-talk-person-twitter-id {
+  font-family: Helvetica;
+  font-size: 1.25rem;
+  color: #000000;
+  text-align: center;
+}
+
+.tp-talk-time {
+  font-family: Helvetica;
+  font-size: 1.3rem;
+  color: #A8A9AF;
+  text-align: center;
+}
+
+.tp-mute-button {
+  text-align: center;
+  color: #C4C4C4;
+}
+
+.tp-page-footer {
+  margin-top: auto;
+  background-image: linear-gradient(-225deg, #6B53C5 0%, #6B53C5 0%, #4884CE 100%);
+  border: 1px solid #979797;
+  border: 1px solid #F6FFFF;
+  box-shadow: 0 0 2px 0 rgba(0,0,0,0.50);
+  height: 5.25rem;
+}
+
+.tp-footer-rectangle {
+  height: 4rem;
+  margin:0.5rem;
+  border: 1px solid #F6FFFF;
+  box-shadow: 0 0 2px 0 rgba(0,0,0,0.50);
+}
+
+/* ===================================
+modal page
+====================================== */
+
+#modal-demo{
+  max-width: 70%;
+  height:80%;
+}
+
+.tp-modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  background: rgba(255,255,255,0.49);
+  padding: 0;
+  max-height: 70%;
+  width: 55%;
+  margin: auto;
+  overflow-y: auto;
+  border-radius: 2px;
+  will-change: top, opacity;
+}
+
+/* モーダル画像をブロックでセンター合わせ */
+img.modal-aligncenter{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.modal-translucent-rectangle {
+  background: rgba(255,255,255,0.49);
+  max-width: 100%;
+  height: 50%;
+}
+
+.modal-block-add-btn {
+  background: #FFFFFF;
+  box-shadow: 0 0 9px 4px rgba(186,186,186,0.50);
+}
+
+/* モーダル画像下のアイコンをブロックで並列 */
+#block_btn #follow_btn{
+  /* display:inline-block; */
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 640px;
+  max-height: 640px;
+  width: 300px;
+  height: 300px;
+}
+
+#block_btn{
+    /* display:inline-block; */
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 640px;
+  max-height: 640px;
+  width: 100px;
+  height: 100px;
+
+}
+
+#block_btn i.material-icons{
+  /* display:inline-block; */
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 640px;
+  max-height: 640px;
+  width: 100px;
+  height: 100px;
+}
+
+.modal-btn{
+  width: 200px;
+  height: 200px;
+}
+
+
+/* ===================================
+top page
+====================================== */
+
+.top-logo-back-rectangle {
+  background: #4792C1;
+  border-radius: 4px;
+}
+
+.tp-icon-background {
+  border-radius: 100%;
+  background: #FFFFFF;
+  border: 1px solid #B4B4B4;
+
+}
+
+.tp-create-talk-room-btn{
+  background: #32A3E6;
+  border: 1px solid #979797;
+  height: 50px;
+}
+
+.tp-find-talk-room-btn{
+  background: #369BBE;
+  border: 1px solid #979797;
+  height: 50px;
+}
+
+/* ===================================
+create-talk-room page
+====================================== */
+.main-background {
+  background: #F8F8F8;
+}
+
+.proposal-box {
+  font-family: HiraginoSans-W3;
+  font-size: 18px;
+  color: #8F8D8D;
+  text-align: center;
+}
+
+.proposal-exapmle-box {
+  font-family: HiraginoSans-W6;
+  font-size: 16px;
+  color: #A09E9E;
+  text-align: center;
+}
+
+.input-talk-room-contents-box {
+  background: #FDFDFD;
+  border: 1px solid #1C76B6;
+  width: 90%;
+  margin: 0 auto; /* 上下0 左右中央揃え */
+  border-radius: 20px;
+}
+/* materialize 上書き */
+textarea.materialize-textarea {
+  overflow-y: hidden;
+  padding: 1.6rem 0;
+  resize: none;
+  min-height: 3rem;
+  max-height: 40px; /*高さ固定*/
+}
+
+.tweet-btn {
+  color: #FFFFFF;
+  margin-top: 5%;
+  font-size: 1.2rem;
+  background: #00A0E8;
+  border: 1px solid #979797;
+  height: 10%;
+  height: 3rem;
+  border-radius: 20px;
+}
+.tweet-btn:before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin: -3px 5px 0 0;
+  background: url("images/twitter_icon.png") no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
+.text-align-center {
+  text-align: center;
+}
+.tp-icon-container {
+  text-align: center;
+}
+.tp-main-icon {
+  width: 66%;
+}
+.tp-nav-icon {
+  width: 100%;
+}
+.light-green-color {
+  color: lightgreen;
+}
+.tp-container {
+  max-width: 370px;
+  background: white;
+}
+body {
+  background: #f3f3f3;
+}
