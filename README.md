@@ -57,3 +57,12 @@ python manage.py runserver
 ## url
 - トップページ:http://127.0.0.1:8000/
 - トーク画面:http://127.0.0.1:8000/talk_page/
+
+## コード修正時の確認事項
+
+### 新たなパッケージをインストールする場合
+新たなパッケージをインストールとき以下を実行。
+```buildoutcfg
+rm requirements.txt
+pip freeze > requirements.txt
+```
