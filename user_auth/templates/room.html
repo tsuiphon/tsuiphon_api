@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <title>multi party</title>
+  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+  <input id="room_password" type="hidden" value="{{ room_password }}" />
+  socket.io signaling for multi-party (trickle ICE)<br />
+  <button type="button" onclick="startVideo();">Start Video</button>
+  <button type="button" onclick="stopVideo();">Stop Video</button>
+  &nbsp;
+  <button type="button" onclick="connect();">Connect</button>
+  <button type="button" onclick="hangUp();">Hang Up</button> 
+  <div>
+    <video id="local_video" autoplay style="width: 160px; height: 120px; border: 1px solid black;"></video>
+  </div>
+  <div class="col s12 tp-icon-container">
+    {% load static %}
+    <img id="guest_user_icon" class="tp-circle tp-main-icon s8 push-s2" src="{{ pair_avatar_url }}" alt="ツイッターアイコン" title="ツイッターアイコン">
+  </div>
+  <div id="audio_container">
+  </div>
+  <!--
+  <p>SDP to send:<br />
+    <textarea id="text_for_send_sdp" rows="5" cols="60" readonly="readonly">SDP to send</textarea>
+  </p>
+  <p>SDP received:&nbsp;
+    <button type="button" onclick="onSdpText();">Receive remote SDP</button>
+    <br />
+    <textarea id="text_for_receive_sdp" rows="5" cols="60"></textarea>
+  </p>
+  -->
+</body>
+<script src="https://tsuiphonsig.herokuapp.com/socket.io/socket.io.js"></script>
+{% load static %}
+<script src="{% static 'js/phone_room.js' %}"></script>
+</html>

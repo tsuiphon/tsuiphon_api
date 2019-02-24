@@ -66,3 +66,12 @@ python manage.py runserver
 rm requirements.txt
 pip freeze > requirements.txt
 ```
+
+### 新たなモデルの追加
+```
+vi ./hoge/models.py# models.pyの編集
+python manage.py makemigrations 
+python manage.py migrate
+```
+トラブルシューティング:
+https://trybeetle.com/en/detail/4/

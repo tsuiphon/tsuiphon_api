@@ -47,7 +47,7 @@
             <span class="col s2 push-s10 tp-room-people">3132</span>
         </div>
         <div class="col s12 tp-icon-container">
-            <img class="tp-circle tp-main-icon s8 push-s2" src="{% static 'images/twitter_icon.jpg' %}" alt="ツイッターアイコン" title="ツイッターアイコン">
+            <img id="guest_user_icon" class="tp-circle tp-main-icon s8 push-s2" src="{% static 'images/twitter_icon.jpg' %}" alt="ツイッターアイコン" title="ツイッターアイコン">
         </div>
         <div class="col s12">
           <span class="tp-talk-person-name col s10 push-s1"><i class="material-icons light-green-color">fiber_manual_record</i>no name</span>
@@ -103,5 +103,12 @@
       </div>
     </footer>
     </div>
+    <!-- オーディオ -->
+    <div id="audio_container" class="hidden">
+      <input id="room_key" type="hidden" value="{{ room_key }}" />
+    </div>
   </body>
+  <script src="https://tsuiphonsig.herokuapp.com/socket.io/socket.io.js"></script>
+  {% load static %}
+  <script src="{% static 'js/phone_room.js' %}"></script>
 </html>

@@ -9,7 +9,7 @@ def get_user_profile(access_token,access_secret,user_id):
     res = api.get("%s/users/show.json?user_id=%s" % (endpoint, user_id))
     return res.json()
 
-def get_user_avatar_url_from_user_auth(user_auth):
+def get_my_avatar_url_from_user_auth(user_auth):
     avatar_url = get_user_profile(user_auth.access_token['oauth_token'],
                      user_auth.access_token['oauth_token_secret'],
                      user_auth.uid)['profile_image_url']
