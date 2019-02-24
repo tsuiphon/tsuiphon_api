@@ -48,7 +48,11 @@ vi tsuiphon_api_django/tsuiphon_api_django/secret.json
 cd tsuiphon_api_django
 python manage.py migrate
 ```
-
+## ソースを最新に更新した後にやること
+```
+pip install -r requirements.txt
+python manage.py migrate
+```
 ## 起動方法
 ```
 python manage.py runserver
