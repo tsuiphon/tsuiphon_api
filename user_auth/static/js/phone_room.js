@@ -103,8 +103,8 @@ function emitTo(id, msg) {
 
 // -- room名を取得 --
 function getRoomName() {
-  const room_key = document.getElementById('room_key').value;
-  return room_key;
+  const room_password = document.getElementById('room_password').value;
+  return room_password;
 }
 
 // ---- for multi party -----
