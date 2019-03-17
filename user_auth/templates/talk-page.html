@@ -43,20 +43,27 @@
     <!-- メインコンテンツ -->
     <div class="tp-container">
       <div class="row">
-        <div class="col s12">
-            <span class="col s2 push-s10 tp-room-people">3132</span>
-        </div>
         <div class="col s12 tp-icon-container">
             <img id="guest_user_icon" class="tp-circle tp-main-icon s8 push-s2" src="{% static 'images/twitter_icon.jpg' %}" alt="ツイッターアイコン" title="ツイッターアイコン">
         </div>
         <div class="col s12">
-          <span class="tp-talk-person-name col s10 push-s1"><i class="material-icons light-green-color">fiber_manual_record</i>no name</span>
+          <span id="guest_user_name" class="tp-talk-person-name col s10 push-s1">...</span>
         </div>
         <div class="col s12">
-          <span class="tp-talk-person-twitter-id col s10 push-s1">@test_id</span>
+          <span id="guest_user_id" class="tp-talk-person-twitter-id col s10 push-s1">...</span>
         </div>
         <div class="col s12">
-          <span class="tp-talk-time col s2 push-s5">03:34</span>
+          <span id="clock" class="tp-talk-time col s2 push-s5">0:00</span>
+        </div>
+
+        <div class="debug">
+          <div id="audio_container">
+          </div>
+        <button type="button" onclick="startVideo();">Start Video</button>
+        <button type="button" onclick="stopVideo();">Stop Video</button>
+        &nbsp;
+        <button type="button" onclick="connect();">Connect</button>
+        <button type="button" onclick="hangUp();">Hang Up</button>
         </div>
         <div class="col s4 text-align-center">
           <a class="push-s1 tp-mute-button btn-floating btn-large waves-effect waves-light accent-4 talk-button-link"><i class="material-icons">mic_off</i></a>
@@ -104,11 +111,46 @@
     </footer>
     </div>
     <!-- オーディオ -->
-    <div id="audio_container" class="hidden">
-      <input id="room_key" type="hidden" value="{{ room_key }}" />
+    <input id="room_password" type="hidden" value="" />
+    <!-- ローディング -->
+    <div class="loading">
+      <div class="loading_icon"></div>
     </div>
   </body>
   <script src="https://tsuiphonsig.herokuapp.com/socket.io/socket.io.js"></script>
   {% load static %}
   <script src="{% static 'js/phone_room.js' %}"></script>
+  <script type="text/javascript">
+    var count = 0;
+    console.log("test");
+    var countup = function(){
+      $('#clock').text(get_time(count++));
+    }
+    function get_time(time_count){
+        var seconds = parseInt(time_count % 60, 10);
+        var minutes = parseInt((time_count / 60), 10);
+        seconds = (seconds < 10) ? "0" + seconds : seconds;
+        return minutes + ":" + seconds;
+    }
+    $.ajax({
+      url:'http://127.0.0.1:8000/room/?talk_id=hoge',
+      type:'GET',
+      timeout: 300000,
+    })
+    .done((data) => {
+      console.log(data);
+      $('#guest_user_icon').attr('src',data.pair_avatar_url);
+      $('#guest_user_name').text(data.pair_user_name);
+      $('#guest_user_id').text('@'+data.pair_screen_name);
+      $('#room_password').attr('value',data.room_password);
+      $(".loading").addClass("hidden");
+      call_init();
+      setInterval(countup, 1000);
+    })
+    .fail((data) => {
+      console.log(data);
+    })
+    .always((data) => {
+    });
+  </script>
 </html>

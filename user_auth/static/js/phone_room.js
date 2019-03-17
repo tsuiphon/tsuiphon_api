@@ -29,67 +29,70 @@ navigator.getUserMedia  = navigator.getUserMedia    || navigator.webkitGetUserMe
                           navigator.mozGetUserMedia || navigator.msGetUserMedia;
 RTCPeerConnection = window.RTCPeerConnection || window.webkitRTCPeerConnection || window.mozRTCPeerConnection;
 RTCSessionDescription = window.RTCSessionDescription || window.webkitRTCSessionDescription || window.mozRTCSessionDescription;
-// ----- use socket.io ---
-let socket = io.connect('https://tsuiphonsig.herokuapp.com/');
-let room = getRoomName();
-socket.on('connect', function(evt) {
-  console.log('socket.io connected. enter room=' + room );
-  socket.emit('enter', room);
-});
-socket.on('message', function(message) {
-  console.log('message:', message);
-  let fromId = message.from;
+var socket = null;
+function call_init() {
+  // ----- use socket.io ---
+  socket = io.connect('https://tsuiphonsig.herokuapp.com/');
+  let room = getRoomName();
+  socket.on('connect', function(evt) {
+    console.log('socket.io connected. enter room=' + room );
+    socket.emit('enter', room);
+  });
+  socket.on('message', function(message) {
+    console.log('message:', message);
+    let fromId = message.from;
 
-  if (message.type === 'offer') {
-    // -- got offer ---
-    console.log('Received offer ...');
-    let offer = new RTCSessionDescription(message);
-    setOffer(fromId, offer);
-  }
-  else if (message.type === 'answer') {
-    // --- got answer ---
-    console.log('Received answer ...');
-    let answer = new RTCSessionDescription(message);
-    setAnswer(fromId, answer);
-  }
-  else if (message.type === 'candidate') {
-    // --- got ICE candidate ---
-    console.log('Received ICE candidate ...');
-    let candidate = new RTCIceCandidate(message.ice);
-    console.log(candidate);
-    addIceCandidate(fromId, candidate);
-  }
-  else if (message.type === 'call me') {
-    if (! isReadyToConnect()) {
-      console.log('Not ready to connect, so ignore');
-      return;
+    if (message.type === 'offer') {
+      // -- got offer ---
+      console.log('Received offer ...');
+      let offer = new RTCSessionDescription(message);
+      setOffer(fromId, offer);
     }
-    else if (! canConnectMore()) {
-      console.warn('TOO MANY connections, so ignore');
+    else if (message.type === 'answer') {
+      // --- got answer ---
+      console.log('Received answer ...');
+      let answer = new RTCSessionDescription(message);
+      setAnswer(fromId, answer);
     }
+    else if (message.type === 'candidate') {
+      // --- got ICE candidate ---
+      console.log('Received ICE candidate ...');
+      let candidate = new RTCIceCandidate(message.ice);
+      console.log(candidate);
+      addIceCandidate(fromId, candidate);
+    }
+    else if (message.type === 'call me') {
+      if (! isReadyToConnect()) {
+        console.log('Not ready to connect, so ignore');
+        return;
+      }
+      else if (! canConnectMore()) {
+        console.warn('TOO MANY connections, so ignore');
+      }
 
-    if (isConnectedWith(fromId)) {
-      // already connnected, so skip
-      console.log('already connected, so ignore');
+      if (isConnectedWith(fromId)) {
+        // already connnected, so skip
+        console.log('already connected, so ignore');
+      }
+      else {
+        // connect new party
+        makeOffer(fromId);
+      }
     }
-    else {
-      // connect new party
-      makeOffer(fromId);
+    else if (message.type === 'bye') {
+      if (isConnectedWith(fromId)) {
+        stopConnection(fromId);
+      }
     }
-  }
-  else if (message.type === 'bye') {
-    if (isConnectedWith(fromId)) {
-      stopConnection(fromId);
+  });
+  socket.on('user disconnected', function(evt) {
+    console.log('====user disconnected==== evt:', evt);
+    let id = evt.id;
+    if (isConnectedWith(id)) {
+      stopConnection(id);
     }
-  }
-});
-socket.on('user disconnected', function(evt) {
-  console.log('====user disconnected==== evt:', evt);
-  let id = evt.id;
-  if (isConnectedWith(id)) {
-    stopConnection(id);
-  }
-});
+  });
+}
 
 // --- broadcast message to all members in room
 function emitRoom(msg) {
